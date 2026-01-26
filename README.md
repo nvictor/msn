@@ -18,13 +18,20 @@ answers, comments, and closures across a phrase.
 
 ### 1. Motifs
 
-A motif is a short melodic gesture expressed as relative scale
-degrees or intervals.
+A motif is a short melodic gesture expressed as relative scale degrees.
+
+**Permitted Symbols:**
+
+| Symbol | Meaning |
+|---|---|
+| `1` .. `7` | Diatonic scale degrees (Major) |
+| `♭` / `♯` | Chromatic alterations (e.g., `♭3`, `♯4`) |
+| `↓` / `↑` | Octave shifts (e.g., `5↓`, `1↑`) |
 
 Examples:
 ```
 A = [1 ♭3 4]
-B = [R m3 4]
+B = [1 3 5]
 C = [1 4 5]
 ```
 
@@ -90,13 +97,13 @@ Interpretation:
 
 ## Examples
 
-### Minor-Key Gesture
+### Way Maker (Leeland) - Verse
 
 ```
-A = [R m3 4]
-B = [R 4 5]
-
-[A? B! A~ B=]
+A = [1 ♭3 4]
+B = A←
+C = [1 5↓ 1 2]
+D = [1 ♭3 1 6↓]
 ```
 
 ### Simple Folk Structure
