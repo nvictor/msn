@@ -63,10 +63,14 @@ Motifs may be transformed when reused.
 | `↑` | Transpose up (Octave) |
 | `↓` | Transpose down (Octave) |
 
+Transformations can be stacked (e.g., `A←'` means "A reversed, then varied").
+
 Example:
 ```
-B : A'
-C : A↑
+A   : [1 2 3]
+A'  : [1 2 4]
+A↑  : [1↑ 2↑ 3↑]
+A←' : [3 2 1 2]
 ```
 
 ## Phrase Grammar
@@ -77,17 +81,16 @@ MSN phrases are written as ordered chains of motif-role pairs.
 
 ```
 A : [1 ♭3 4]
-B : A←
 
-[A? B! A~ B=]
+[A? A←! A~ A←=]
 ```
 
 Interpretation:
 
 1.  A introduces a question
-2.  B responds with variation
+2.  A (reversed) responds
 3.  A comments on the original idea
-4.  B reinforces and closes
+4.  A (reversed) reinforces and closes
 
 ### Repetition-Driven Variant
 
@@ -97,24 +100,33 @@ Interpretation:
 
 ## Examples
 
-### Way Maker (Leeland)
-
-```
-A : [1 ♭3 4]
-B : A←
-C : [1 5↓ 1 2]
-D : [1 ♭3 1 6↓]
-
-[A? B! C~ D=]
-```
-
 ### Simple Folk Structure
 
 ```
 A : [1 2 3]
-B : A←
 
-[A? B! B~ A=]
+[A? A←! A←~ A=]
+```
+
+### Way Maker (Leeland)
+
+```
+A  : [1 ♭3 4]
+B  : [1 5↓ 1 2]
+B' : [1 ♭3 1 6↓]
+
+[A? A←! B~ B'=]
+```
+
+### Awesome God (Rich Mullins)
+
+```
+A  : [1 1 1 2 ♭3 ♭7↓ 5↓]
+B  : [4 4 2 ♭3 ♭3 2 1]
+A' : [♭7↓ 1 2 ♭3 ♭7↓ 5↓]
+B' : [4 4 5 4 ♭3 2 1]
+
+[A? B! A'~ B'=]
 ```
 
 ## Generative Use
