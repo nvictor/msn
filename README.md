@@ -116,7 +116,7 @@ A' : [4 4 4 ♭3 1]
 B  : [1 5↓ 1 2]
 B' : [1 ♭3 1 6↓]
 
-[A? A'←! B~ B'=]
+[A? A'←< B! B'=]
 ```
 
 ### Awesome God (Rich Mullins)
