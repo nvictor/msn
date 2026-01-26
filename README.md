@@ -9,7 +9,7 @@ answers, comments, and closures across a phrase.
 ## Design Goals
 
 -   Concise and human-readable
--   Relative (scale-degree--based), not absolute pitch
+-   Relative (scale-degree-based), not absolute pitch
 -   Generative, not just analytical
 -   Phrase- and conversation-oriented
 -   Engineer-friendly and DSL-compatible
@@ -30,9 +30,9 @@ A motif is a short melodic gesture expressed as relative scale degrees.
 
 Examples:
 ```
-A = [1 ♭3 4]
-B = [1 3 5]
-C = [1 4 5]
+A : [1 ♭3 4]
+B : [1 3 5]
+C : [1 4 5]
 ```
 
 Motifs describe shape, not duration, rhythm, or harmony.
@@ -60,13 +60,13 @@ Motifs may be transformed when reused.
 | `←` | Reverse |
 | `<` | Expansion |
 | `>` | Contraction |
-| `↑` | Transpose up |
-| `↓` | Transpose down |
+| `↑` | Transpose up (Octave) |
+| `↓` | Transpose down (Octave) |
 
 Example:
 ```
-B = A'
-C = A↑
+B : A'
+C : A↑
 ```
 
 ## Phrase Grammar
@@ -76,8 +76,8 @@ MSN phrases are written as ordered chains of motif-role pairs.
 ### Canonical Call-Response Pattern
 
 ```
-A = [1 ♭3 4]
-B = A←
+A : [1 ♭3 4]
+B : A←
 
 [A? B! A~ B=]
 ```
@@ -97,22 +97,24 @@ Interpretation:
 
 ## Examples
 
-### Way Maker (Leeland) - Verse
+### Way Maker (Leeland)
 
 ```
-A = [1 ♭3 4]
-B = A←
-C = [1 5↓ 1 2]
-D = [1 ♭3 1 6↓]
+A : [1 ♭3 4]
+B : A←
+C : [1 5↓ 1 2]
+D : [1 ♭3 1 6↓]
+
+[A? B! C~ D=]
 ```
 
 ### Simple Folk Structure
 
 ```
-A = [1 2 3]
-B = A←
+A : [1 2 3]
+B : A←
 
-[A? B B~ A=]
+[A? B! B~ A=]
 ```
 
 ## Generative Use
