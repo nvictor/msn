@@ -130,6 +130,19 @@ B' : [4 4 5 4 ♭3 2 1]
 [A? B! A'~ B'=]
 ```
 
+### The Terminator Theme (Brad Fiedel)
+
+```
+A  : [1 2 ♭3]
+B  : [2 ♭7↓ ♭3↓]
+C  : [2 ♭7↓ 5 4]
+D  : [2 ♭7↓ 4↓]
+E  : [♭3↓ 1↓]
+E' : [♭3↓ 2↓ 1↓]
+
+[A? B! A? C! A? D! E~ E'=]
+```
+
 ## Generative Use
 
 MSN is suitable for:
