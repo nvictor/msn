@@ -6,7 +6,7 @@ MSN is intentionally orthogonal to harmony and rhythm. It focuses on
 melodic meaning: how short pitch gestures function as questions,
 answers, comments, and closures across a phrase.
 
-## Design Goals
+## Design Principles
 
 -   Concise and human-readable
 -   Relative (scale-degree-based), not absolute pitch
@@ -14,7 +14,7 @@ answers, comments, and closures across a phrase.
 -   Phrase- and conversation-oriented
 -   Engineer-friendly and DSL-compatible
 
-## Core Concepts
+## Core Axes
 
 ### 1. Motifs
 
@@ -143,7 +143,7 @@ E' : [♭3↓ 2↓ 1↓]
 [A? B! A? C! A? D! E~ E'=]
 ```
 
-## Generative Use
+## Intended Use
 
 MSN is suitable for:
 -   Algorithmic composition
