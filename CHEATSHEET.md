@@ -17,3 +17,8 @@
 - `<`: Expansion
 - `>` : Contraction
 - `↑` / `↓`: Transpose (Octave)
+
+## Live Mode (Shorthand)
+- Use lowercase letters (e.g., `a`, `b`) for motifs.
+- Omit brackets `[]` in simple chains if unambiguous.
+- Example: `a:135 a? a!~`
