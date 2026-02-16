@@ -1,169 +1,69 @@
 # Melodic Structure Notation (MSN)
+**Version:** 1.0.0
 
-MSN is a concise, symbolic system for describing, analyzing, and generating melodies based on motivic gestures, phrase roles, and transformational logic.
+MSN is a symbolic system for describing and analyzing melodies based on motivic gestures, phrase roles, and transformational logic.
 
-MSN is intentionally orthogonal to harmony and rhythm. It focuses on
-melodic meaning: how short pitch gestures function as questions,
-answers, comments, and closures across a phrase.
+## Model: Captures vs Ignores
 
-## Design Principles
+| Captures | Ignores |
+| :--- | :--- |
+| Melodic meaning / function | Absolute pitch / key |
+| Motivic transformations | Exact rhythmic values |
+| Conversational structure | Harmonic progression |
+| Scale-degree relationships | Instrumentation / Articulation |
 
--   Concise and human-readable
--   Relative (scale-degree-based), not absolute pitch
--   Generative, not just analytical
--   Phrase- and conversation-oriented
--   Engineer-friendly and DSL-compatible
+## Canonical Syntax
 
-## Core Axes
-
-### 1. Motifs
-
-A motif is a short melodic gesture expressed as relative scale degrees.
-
-**Permitted Symbols:**
-
-| Symbol | Meaning |
-|---|---|
-| `1` .. `7` | Diatonic scale degrees (Major) |
-| `♭` / `♯` | Chromatic alterations (e.g., `♭3`, `♯4`) |
-| `↓` / `↑` | Octave shifts (e.g., `5↓`, `1↑`) |
-
-Examples:
-```
-A : [1 ♭3 4]
-B : [1 3 5]
-C : [1 4 5]
+```text
+MotifDef ::= <Identifier> ":" "[" <Degrees> "]"
+Phrase   ::= "[" <MotifInstance>+ "]"
+MotifInstance ::= <Identifier> [<Transformation>+] [<Role>]
 ```
 
-Motifs describe shape, not duration, rhythm, or harmony.
+Example: `A : [1 ♭3 4] [A? A←!]`
+
+## Symbol Table
+
+### 1. Degrees
+- `1`..`7`: Diatonic scale degrees.
+- `♭` / `♯`: Chromatic alterations.
+- `↓` / `↑`: Octave shifts.
 
 ### 2. Phrase Roles
-
-Each motif instance can be annotated with a conversational role.
-
-| Symbol | Role | Meaning |
-|--------|------|------------------------------|
-| `?` | Question | Call, opening, implication, statement |
-| `!` | Answer | Response, resolution |
-| `~` | Comment | Reflection or meta-statement |
-| `=` | Reinforce | Repetition or confirmation |
-
-These roles are semantic, not prescriptive.
+- `?`: **Question:** Call, opening, implication.
+- `!`: **Answer:** Response, resolution.
+- `~`: **Comment:** Reflection or meta-statement.
+- `=`: **Reinforce:** Repetition or confirmation.
 
 ### 3. Transformations
+- `'`: **Variation:** Small melodic change.
+- `←`: **Reverse:** Retrograde.
+- `<`: **Expansion:** Interval stretching.
+- `>` : **Contraction:** Interval shrinking.
+- `↑` / `↓`: **Transpose:** Octave shifts.
 
-Motifs may be transformed when reused.
+## Semantics Rules
 
-| Symbol | Transformation |
-|--------|----------------|
-| `'` | Variation (small change) |
-| `←` | Reverse |
-| `<` | Expansion |
-| `>` | Contraction |
-| `↑` | Transpose up (Octave) |
-| `↓` | Transpose down (Octave) |
+- **Relative Pitch:** All degrees are relative to the current tonal center (unspecified in MSN).
+- **Functional Context:** Roles define the *conversational* intent of a motif within a phrase.
+- **Transformational Stacking:** Transformations are applied left-to-right (e.g., `A←'` is Reverse then Varied).
+- **Implicit Closure:** Phrases are assumed to form a complete musical thought.
 
-Transformations can be stacked (e.g., `A←'` means "A reversed, then varied").
+## Constraints / Invariants
 
-Example:
-```
-A   : [1 2 3]
-A'  : [1 2 4]
-A↑  : [1↑ 2↑ 3↑]
-A←' : [3 2 1 2]
-```
+- Motifs must be defined before use in a phrase.
+- Transformations only apply to the motif immediately preceding them.
+- MSN does not encode duration; it describes pitch-contour and function.
 
-## Phrase Grammar
+## Live Mode (Shorthand)
 
-MSN phrases are written as ordered chains of motif-role pairs.
+Optimized for high-speed melodic capture.
 
-### Canonical Call-Response Pattern
+- Use lowercase letters for quick motif definitions.
+- Omit brackets in simple chains if unambiguous.
 
-```
-A : [1 ♭3 4]
+Example: `a:135 a? a!~`
 
-[A? A←! A~ A←=]
-```
+---
 
-Interpretation:
-
-1.  A introduces a question
-2.  A (reversed) responds
-3.  A comments on the original idea
-4.  A (reversed) reinforces and closes
-
-### Repetition-Driven Variant
-
-```
-[A? B! A= B=]
-```
-
-## Examples
-
-### Simple Folk Structure
-
-```
-A : [1 2 3]
-
-[A? A←! A←~ A=]
-```
-
-### Way Maker (Leeland)
-
-```
-A  : [1 ♭3 4]
-A' : [4 4 4 ♭3 1]
-B  : [1 5↓ 1 2]
-B' : [1 ♭3 1 6↓]
-
-[A? A'←< B! B'=]
-```
-
-### Awesome God (Rich Mullins)
-
-```
-A  : [1 1 1 2 ♭3 ♭7↓ 5↓]
-B  : [4 4 2 ♭3 ♭3 2 1]
-A' : [♭7↓ 1 2 ♭3 ♭7↓ 5↓]
-B' : [4 4 5 4 ♭3 2 1]
-
-[A? B! A'~ B'=]
-```
-
-### The Terminator Theme (Brad Fiedel)
-
-```
-A  : [1 2 ♭3]
-B  : [2 ♭7↓ ♭3↓]
-C  : [2 ♭7↓ 5 4]
-D  : [2 ♭7↓ 4↓]
-E  : [♭3↓ 1↓]
-E' : [♭3↓ 2↓ 1↓]
-
-[A? B! A? C! A? D! E~ E'=]
-```
-
-## Intended Use
-
-MSN is suitable for:
--   Algorithmic composition
--   Melody generators
--   Structural analysis
--   Sketching musical ideas quickly
-
-## Non-Goals
-
-MSN is not:
-- A replacement for staff notation
-- A rhythmic notation system
-- A performance specification
-
-It is a structural and semantic layer.
-
-## Status
-
-MSN is experimental and evolving.
-
-The symbol set is intentionally small. New roles or transformations
-should only be added when they clearly enable expressive power without
-reducing clarity.
+See [EXAMPLES.md](./EXAMPLES.md) for usage and [CHEATSHEET.md](./CHEATSHEET.md) for a quick reference.
