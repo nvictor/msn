@@ -1,6 +1,6 @@
-# MSN Changelog
+# MEL Changelog
 
-All notable changes to the Melodic Structure Notation (MSN) specification will be documented in this file.
+All notable changes to the Melodic Engineering Language (MEL) specification will be documented in this file.
 
 ## [1.0.0] - 2026-02-16
 

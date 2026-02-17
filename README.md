@@ -1,7 +1,7 @@
-# Melodic Structure Notation (MSN)
+# Melodic Engineering Language (MEL)
 **Version:** 1.0.0
 
-MSN is a symbolic system for describing and analyzing melodies based on motivic gestures, phrase roles, and transformational logic.
+MEL is a symbolic system for describing and analyzing melodies based on motivic gestures, phrase roles, and transformational logic.
 
 ## Model: Captures vs Ignores
 
@@ -15,6 +15,7 @@ MSN is a symbolic system for describing and analyzing melodies based on motivic 
 ## Canonical Syntax
 
 ```text
+MEL ::= <MotifDef> <Phrase>
 MotifDef ::= <Identifier> ":" "[" <Degrees> "]"
 Phrase   ::= "[" <MotifInstance>+ "]"
 MotifInstance ::= <Identifier> [<Transformation>+] [<Role>]
@@ -44,7 +45,7 @@ Example: `A : [1 ♭3 4] [A? A←!]`
 
 ## Semantics Rules
 
-- **Relative Pitch:** All degrees are relative to the current tonal center (unspecified in MSN).
+- **Relative Pitch:** All degrees are relative to the current tonal center (unspecified in MEL).
 - **Functional Context:** Roles define the *conversational* intent of a motif within a phrase.
 - **Transformational Stacking:** Transformations are applied left-to-right (e.g., `A←'` is Reverse then Varied).
 - **Implicit Closure:** Phrases are assumed to form a complete musical thought.
@@ -53,17 +54,4 @@ Example: `A : [1 ♭3 4] [A? A←!]`
 
 - Motifs must be defined before use in a phrase.
 - Transformations only apply to the motif immediately preceding them.
-- MSN does not encode duration; it describes pitch-contour and function.
-
-## Live Mode (Shorthand)
-
-Optimized for high-speed melodic capture.
-
-- Use lowercase letters for quick motif definitions.
-- Omit brackets in simple chains if unambiguous.
-
-Example: `a:135 a? a!~`
-
----
-
-See [EXAMPLES.md](./EXAMPLES.md) for usage and [CHEATSHEET.md](./CHEATSHEET.md) for a quick reference.
+- MEL does not encode duration; it describes pitch-contour and function.

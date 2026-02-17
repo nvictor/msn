@@ -1,6 +1,6 @@
-# MSN Examples
+# MEL Examples
 
-This document serves as a workbook for MSN (Melodic Structure Notation), illustrating how motifs, roles, and transformations combine to describe melodic logic.
+This document serves as a workbook for MEL (Melodic Engineering Language), illustrating how motifs, roles, and transformations combine to describe melodic logic.
 
 ## Basic Examples
 

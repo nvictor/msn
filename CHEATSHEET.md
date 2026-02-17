@@ -1,4 +1,4 @@
-# MSN Cheatsheet (v1.0.0)
+# MEL Cheatsheet (v1.0.0)
 
 ## Motifs
 - `1` .. `7`: Scale degrees
