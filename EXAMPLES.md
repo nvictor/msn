@@ -1,8 +1,8 @@
 # MEL Examples
 
-This document serves as a workbook for MEL (Melodic Engineering Language), illustrating how motifs, roles, and transformations combine to describe melodic logic.
+This document gives various examples using the Melodic Engineering Language (MEL) system.
 
-## Basic Examples
+## Basic Structure
 
 ### Simple Folk Structure
 ```text
@@ -11,8 +11,6 @@ A : [1 2 3]
 [A? A←! A←~ A=]
 ```
 
-## Common Patterns
-
 ### Canonical Call-Response
 ```text
 A : [1 ♭3 4]
@@ -20,14 +18,17 @@ A : [1 ♭3 4]
 [A? A←! A~ A←=]
 ```
 
-### Repetition-Driven Variant
+#### Examples
+
+Chorus of Hallelujah (Leonard Cohen), Chorus of It Is Well (Bethel Music, Kristene DiMarco):
+
 ```text
-[A? B! A= B=]
+A : [3 5 5 6]
+
+[A? A←'! A~ A←<=]
 ```
 
-## Edge Cases
-
-### Way Maker (Leeland)
+Verse 1 & 2 of Way Maker (Leeland):
 ```text
 A  : [1 ♭3 4]
 A' : [4 4 4 ♭3 1]
@@ -58,6 +59,3 @@ E' : [♭3↓ 2↓ 1↓]
 
 [A? B! A? C! A? D! E~ E'=]
 ```
-
-## Full Song Capture
-*(To be added as the system matures)*
