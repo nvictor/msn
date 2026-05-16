@@ -93,14 +93,6 @@ Example: `a:1 b3 4  a? a←!` is equivalent to `A : [1 b3 4] [A? A←!]`.
 
 ## Examples
 
-### Simple Folk Structure
-
-```text
-A : [1 2 3]
-
-[A? A←! A←~ A=]
-```
-
 ### Canonical Call-Response
 
 ```text
