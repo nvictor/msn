@@ -101,15 +101,9 @@ A : [1 b3 4]
 [A? A←! A~ A←=]
 ```
 
-### Hallelujah / It Is Well
-
-Chorus of "Hallelujah" (Leonard Cohen), chorus of "It Is Well" (Bethel Music, Kristene DiMarco):
-
-```text
-A : [3 5 5 6]
-
-[A? A←'! A~ A←<=]
-```
+Songs:
+* Chorus of "Hallelujah" (Leonard Cohen)
+* Chorus of "It Is Well" (Bethel Music, Kristene DiMarco)
 
 ### Way Maker
 
