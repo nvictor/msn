@@ -93,30 +93,18 @@ Example: `a:1 b3 4  a? a←!` is equivalent to `A : [1 b3 4] [A? A←!]`.
 
 ## Examples
 
-### Canonical Call-Response
+### Call-Response
 
 ```text
 A : [1 b3 4]
 
-[A? A←! A~ A←=]
+[A? A←!]
 ```
 
 Songs:
 * Chorus of "Hallelujah" (Leonard Cohen)
 * Chorus of "It Is Well" (Bethel Music, Kristene DiMarco)
-
-### Way Maker
-
-Verse 1 and 2 of "Way Maker" (Leeland):
-
-```text
-A  : [1 b3 4]
-A' : [4 4 4 b3 1]
-B  : [1 5↓ 1 2]
-B' : [1 b3 1 6↓]
-
-[A? A'←< B! B'=]
-```
+* Verse of "Way Maker" (Leeland)
 
 ### Awesome God
 
