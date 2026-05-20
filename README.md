@@ -1,7 +1,7 @@
 # Melodic Engineering Language (MEL)
 **Version:** 1.1.0
 
-MEL is a symbolic system for describing and analyzing melodies by motivic gestures, phrase roles, and transformational logic.
+MEL describes melodies as motifs, transformations, and phrase roles. It captures what a melody is doing, not exact performance detail.
 
 ## Model: Captures vs Ignores
 
@@ -12,7 +12,7 @@ MEL is a symbolic system for describing and analyzing melodies by motivic gestur
 | Conversational structure | Harmonic progression |
 | Scale-degree relationships | Instrumentation / Articulation |
 
-## Canonical Syntax
+## Syntax
 
 ```text
 MEL ::= <MotifDef>+ <Phrase>
@@ -24,15 +24,20 @@ MotifInstance ::= <Identifier> [<Transformation>+] [<Role>]
 
 Example: `A : [1 b3 4] [A? A←!]`
 
-Identifiers use letters and may include apostrophe suffixes for named motif variants. Uppercase names are conventional in canonical notation; lowercase names are useful in live shorthand. For example, `A' : [4 4 4 b3 1]` defines a separate motif from `A`.
+Motif definitions come first. The phrase then names those motifs and marks how each one behaves.
 
-When an apostrophe appears in transform position after a motif instance, it means variation. `A'←<` means motif variant `A'`, then reverse and expand. `A←'` means motif `A`, then reverse and vary.
+Identifiers are letters with optional apostrophe suffixes. Uppercase is standard notation; lowercase is useful for live shorthand. `A' : [4 4 4 b3 1]` defines a named variant of `A`.
 
-## Symbol Table
+The apostrophe has two meanings depending on where it appears:
 
-### 1. Degrees
+- `A'←<`: motif variant `A'`, then reverse and expand.
+- `A←'`: motif `A`, then reverse and vary.
 
-Defines melody as relative scale-degree motion.
+## Symbols
+
+### Degrees
+
+Degrees describe relative pitch.
 
 - `1`..`7`: Diatonic scale degrees.
 - `b` / `#`: Chromatic alterations.
@@ -40,20 +45,16 @@ Defines melody as relative scale-degree motion.
 
 Unicode accidentals `♭` and `♯` may be used in display notation, but ASCII `b` and `#` are the canonical forms.
 
-### 2. Phrase Roles
-
-Defines the conversational function of a motif instance.
+### Roles
 
 - `?`: Question, call, opening, implication.
 - `!`: Answer, response, resolution.
 - `~`: Comment, reflection, or meta-statement.
 - `=`: Reinforce, repetition, or confirmation.
 
-Roles are final phrase-function markers and normally appear after transformations: `A←!`, `A'<=`.
+Roles are phrase-function markers. Put them at the end of a motif instance: `A←!`, `A'<=`.
 
-### 3. Transformations
-
-Defines how a motif instance changes.
+### Transformations
 
 - `'`: Variation, a small melodic change.
 - `←`: Reverse, or retrograde.
@@ -61,28 +62,22 @@ Defines how a motif instance changes.
 - `>`: Contraction, interval shrinking.
 - `↑` / `↓`: Octave transposition when used after a motif instance.
 
-Transformations stack left-to-right. `A←'` is read as reverse, then vary.
+Transformations apply left to right. `A←'` means reverse, then vary.
 
-## Semantics Rules
+## Rules
 
-- **Relative Pitch:** All degrees are relative to the current tonal center, which MEL leaves unspecified.
-- **Motivic Identity:** Named motif variants such as `A'` and `B'` may be defined as distinct related motifs.
-- **Functional Context:** Roles define the conversational intent of a motif within a phrase.
-- **Transformational Stacking:** Transformations are applied left-to-right.
-- **Implicit Closure:** Phrases are assumed to form a complete musical thought.
-
-## Constraints / Invariants
-
-- Motifs must be defined before use in a phrase.
+- Degrees are relative to an unstated tonal center.
+- Named variants such as `A'` and `B'` are distinct motifs.
 - Every motif instance must reference a defined motif identifier.
-- Transformations only apply to the motif instance immediately preceding them.
+- Transformations apply only to the motif instance immediately before them.
 - A motif instance has at most one phrase role, written at the end.
-- MEL does not encode duration; it describes pitch contour and function.
+- A phrase is assumed to form one complete musical thought.
+- MEL describes pitch contour and function, not duration.
 - If a distinction requires exact rhythm, harmony, articulation, or instrumentation, it is outside the scope of MEL.
 
 ## Live Mode (Shorthand)
 
-Optimized for high-speed capture during listening.
+Live mode is for quick capture while listening.
 
 - Use lowercase identifiers for quick motif names: `a`, `b`, `c`.
 - Omit brackets in simple chains if the reading is unambiguous.
