@@ -3,14 +3,7 @@
 
 MEL describes melodies as motifs, transformations, and phrase roles. It captures what a melody is doing, not exact performance detail.
 
-## Model: Captures vs Ignores
-
-| Captures | Ignores |
-| :--- | :--- |
-| Melodic meaning / function | Absolute pitch / key |
-| Motivic transformations | Exact rhythmic values |
-| Conversational structure | Harmonic progression |
-| Scale-degree relationships | Instrumentation / Articulation |
+It captures melodic function, motivic transformations, conversational structure, and scale-degree relationships. It does not specify absolute pitch, key, exact rhythm, harmony, instrumentation, or articulation.
 
 ## Syntax
 
